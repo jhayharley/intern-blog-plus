@@ -15,12 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls import url
 from django.conf import settings
 from django.conf.urls.static import static
+from info.views import RegisterView
 
 urlpatterns = [
-    path('blog/', include('blog.urls', namespace='blog')),
     path('admin/', admin.site.urls),
+    path('blog/', include('blog.urls', namespace='blog')),
+    url(r'^accounts/',include('django.contrib.auth.urls')),
+    url(r'^register/$', RegisterView.as_view(), name='register'),
 ]
 
 if settings.DEBUG:

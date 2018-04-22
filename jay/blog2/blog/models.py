@@ -46,7 +46,6 @@ class Post(models.Model):
     title            = models.CharField(max_length=120)
     subtitle         = models.CharField(max_length=120)
     banner_photo     = models.ImageField(upload_to = 'static/media')
-    author           = models.CharField(max_length=120)
     blog             = models.ForeignKey(Blog, on_delete=models.CASCADE)
     date_created     = models.DateTimeField(auto_now_add=True)
     date_modified    = models.DateTimeField(auto_now_add=True)
