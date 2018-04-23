@@ -1,36 +1,24 @@
 from django.shortcuts import render
-
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-
+#from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.views import View
-
 from .models import Blog, Post
+from django.contrib.auth.mixins import (LoginRequiredMixin,PermissionRequiredMixin)
 
-# Create your views here.
+# Create your views here.class PostView(View):
 
-class BlogView(View):
-  def get(self, request, pk, *args, **kwargs):
-    detail = Detail.objects.get(pk=pk)
-    post_list = detail.post_set.all()
-    paginator = Paginator(post_list, 5)
-    page = request.GET.get('page')
-    try:
-      post = paginator.page(page)
-    except PageNotAnInteger:
-      post = paginator.page(1)
-    except EmptyPage:
-      post = paginator.page(paginator.num_pages)
-
-    context = {
-            'detail': detail,
-            'post': post,
+class PostView(LoginRequiredMixin, View):
+  def get(self, request,*args, **kwargs):
+      post = Post.objects.all().order_by('-date_created')
+      context = {
+          'object_list': post,
       }
-    return render(request, "blog/detail.html", context)
+      return render(request, "blog/post_list.html", context)
 
-class PostView(View):
+
+class PostDetailView(View):
   def get(self, request, post_id, *args, **kwargs):
       post = Post.objects.filter(id=post_id).order_by('-date_created')
       context = {
           'object_list': post,
       }
-      return render(request, "blog/post_list.html", context)
+      return render(request, "blog/post_detail.html", context)

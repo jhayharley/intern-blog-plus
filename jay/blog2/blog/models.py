@@ -32,7 +32,6 @@ class Category(models.Model):
 
 class Comment(models.Model):
     user             = models.ForeignKey(User, on_delete=models.CASCADE)
-    reaction         = models.BooleanField(default=True)
     date_created     = models.DateTimeField(auto_now_add=True)
 
 STATUS_CHOICES = (
@@ -53,7 +52,7 @@ class Post(models.Model):
     category         = models.ForeignKey('Category', on_delete=models.CASCADE,)
     body             = models.TextField()
     status           = models.CharField(max_length=9, choices=STATUS_CHOICES, blank=True, default=True)
-    comment          = models.ManyToManyField("comment", related_name="Commment")
+    comment          = models.ManyToManyField("Comment", related_name="commments")
 
     def __str__(self):
         return '{}'.format(self.user)

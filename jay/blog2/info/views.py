@@ -16,6 +16,4 @@ class RegisterView(CreateView):
     suuccess                 = '/'
 
     def dispatch(self, *args, **kwargs):
-        if self.request.user.is_authenticated():
-            return redirect("/logout")
         return super(RegisterView, self).dispatch(*args, **kwargs)

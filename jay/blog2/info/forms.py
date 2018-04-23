@@ -1,13 +1,8 @@
 from django import forms
-
 from django.contrib.auth import get_user_model
-
 from .models import Info
-
 from django.contrib.auth.forms import AuthenticationForm
-
 from django.utils.translation import ugettext, ugettext_lazy as _
-
 from django.core.validators import RegexValidator
 
 User = get_user_model()

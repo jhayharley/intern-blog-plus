@@ -1,0 +1,33 @@
+{% load static %}
+
+
+<link href="style.css" type="text/css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="{% static 'css/post.css' %}" />
+
+{% block content %}
+  {% if object_list %}
+    {% for post in object_list %}
+
+   <div class="card">
+     <h1 class="heading">{{ post.blog.heading }}</h1>
+     <h2 class="sub_title">{{ post.blog.sub_heading }}</h2>
+     <img src="{{post.banner_photo.url}}"> 
+   
+      <h3>{{ post.user }}</h3>
+      <p><small>{{ post.date_created }}, Updated {{ post.date_modified|timesince }} ago</small></p>
+      {% for tag in post.tags.all %}
+        {% if forloop.last %}
+          {{ tag }}
+        {% else %}
+          {{ tag }},
+        {% endif %}
+      {% endfor %}
+      <h1>{{ post.category }}</h1>
+      <p class="p">{{ post.body }}</p>
+      <p>{{ post.status }}</p>
+   </div>
+    {% endfor %}
+  {% else %}
+    <p>No post</p>
+  {% endif %}
+{% endblock %}
