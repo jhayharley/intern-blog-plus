@@ -14,12 +14,11 @@
      <h1>{{ post.title }}</h1>
      <h2>{{ post.sub_title }}</h2>
      <img src="{{post.banner_photo.url}}">
-     <p class="li" ><a href='{% url "blog:post_detail" post.id %}' role="button" >Details</a> </p>  
+     <p class="li" ><a href='{% url "blog:post_detail" post.title %}' >Details</a> </p>  
    </div> 
    {% endfor %}
    {% else %}
     <p>No post</p>
   {% endif %}
-
 {% endblock %}
 </html>

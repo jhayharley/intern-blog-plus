@@ -1,13 +1,24 @@
 .card{
     background-color: #bdc3c7;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    max-width: 900px;
+    max-width: 400px;
     margin:auto;
-    transition: 0.3s;
-    border-radius: 10px;
+    transition: 2.0s;
+    border-radius: 20px;
     padding-left: 20px;
     padding-right: 2px;
     padding-bottom:20px;
+}
+body {
+    background-image: url("images/img.jpg");
+    background-repeat: no-repeat;
+    border-radius: 50%,
+    margin-left: 500px;
+    margin-top: 200px;
+    background-size: 1300px;
+}
+.helptext{
+    visibility: hidden;
 }
 .p{
     font-family: "Times New Roman", Times, serif;
