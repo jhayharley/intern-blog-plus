@@ -1,19 +1,42 @@
-.card{
-
-    background-color: lightblue;
-
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-
-    max-width: 900px;
-
-    margin:auto;
-
-    transition: 0.3s;
-
-    border-radius: 10px;
-
-    padding-left: 20px;
-
-    padding-bottom:20px;
-
+.topnav {
+    background-color: #F62459;
+    overflow: hidden;
+}
+.topnav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+.active{
+    background-color: black;
+    color: blue;
+}
+.topnav .icon{
+    display: none;
+}
+.dropdown{
+    float: left;
+    overflow: hidden;
+}
+.dropdown .dropbtn{
+    font-size: 17px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+}
+.dropdown-content{
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0,2);
+    z-index: 1;
 }

@@ -1,20 +1,25 @@
 .card{
-    background-color: #bdc3c7;
+    background-color: #36D7B7;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    max-width: 400px;
-    margin:auto;
+    max-width: 200px;
     transition: 2.0s;
     border-radius: 20px;
-    padding-left: 20px;
+    padding-left: 2px;
     padding-right: 2px;
-    padding-bottom:20px;
+    padding-bottom:2px;
+    padding-top: 5px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+form {
+  text-align: center;
 }
 body {
-    background-image: url("images/img.jpg");
+    background-image: url("images/op.jpg");
     background-repeat: no-repeat;
     border-radius: 50%,
-    margin-left: 500px;
-    margin-top: 200px;
+    margin-left: 50px;
+    margin-top: 50px;
     background-size: 1300px;
 }
 .helptext{

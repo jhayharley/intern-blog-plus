@@ -21,7 +21,7 @@ class UserLoginForm(AuthenticationForm):
 
 class RegisterForm(forms.ModelForm):
     """A form for creating new users. Includes all the required fields, plus a repeated password."""
-    password1               = forms.CharField(label='Password',min_length=10, widget=forms.PasswordInput, validators=[RegexValidator('^(\w+\d+|\d+\w+)+$', message="Password should be a combination of Alphabets and Numbers")])
+    password1               = forms.CharField(label='Password',min_length=9, widget=forms.PasswordInput, validators=[RegexValidator('^(\w+\d+|\d+\w+)+$', message="Password should be a combination of Alphabets and Numbers")])
     password2               = forms.CharField(label='Password confirmation', widget=forms.PasswordInput)
 
     class Meta:

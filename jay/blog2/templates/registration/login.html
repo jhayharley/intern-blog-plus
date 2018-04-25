@@ -13,10 +13,10 @@
 
 {% if next %}
     {% if user.is_authenticated %}
-    <p>Your account doesn't have access to this page. To proceed,
-    please login with an account that has access.</p>
+    <h4>Your account doesn't have access to this page. To proceed,
+    please login with an account that has access.</h4>>
     {% else %}
-    <p>Please login to see this page.</p>
+    <h4>Please login to see this page.</h4>>
     {% endif %}
 {% endif %}
 
@@ -39,7 +39,6 @@
 </form>
 
 {# Assumes you setup the password_reset view in your URLconf #}
-<p><a href="{% url 'password_reset' %}">Forgot password?</a></p>
 </div>
 {% endblock %}
 </html>

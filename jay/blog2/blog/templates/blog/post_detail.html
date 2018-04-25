@@ -1,9 +1,12 @@
 {% load static %}
-
-
-<link href="style.css" type="text/css" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="{% static 'css/post.css' %}" />
-
+<!DOCTYPE html>
+<html>
+<meta name = "viewport" content = "width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Cormorant+Upright|Ewert" rel="stylesheet">
+<link href="post.css" type="text/css" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/nav.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/detail.css' %}"/>
+{% include 'nav/navs.html' %}
 <title>Post Detail | My Blog</title>
 
 {% block content %}
@@ -25,7 +28,7 @@
         {% endif %}
       {% endfor %}
       <h1>{{ post.category }}</h1>
-      <p class="p">{{ post.body }}</p>
+      <p>{{ post.body }}</p>
       <p>{{ post.status }}</p>
    </div>
     {% endfor %}
@@ -33,3 +36,4 @@
     <p>No post</p>
   {% endif %}
 {% endblock %}
+</html>

@@ -1,9 +1,10 @@
-{% load static %}
+{% load staticfiles %}
 <!DOCTYPE html>
 <html>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" type="text/css" href="{% static 'css/post.css' %}" />
 
+<link rel="stylesheet" href="{% static 'css/nav.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/post.css' %}" />
+{% include 'nav/navs.html' %}
 <title>Post List | My Blog</title>
 
 {% block content %}
@@ -14,7 +15,7 @@
      <h1>{{ post.title }}</h1>
      <h2>{{ post.sub_title }}</h2>
      <img src="{{post.banner_photo.url}}">
-     <p class="li" ><a href='{% url "blog:post_detail" post.title %}' >Details</a> </p>  
+     <p class="li" ><a href='{% url "blog:post_detail" post.title %}'>Details</a> </p>  
    </div> 
    {% endfor %}
    {% else %}

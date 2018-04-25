@@ -23,8 +23,8 @@ from info.views import RegisterView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('posts/', include('blog.urls', namespace='posts')),
-    url(r'^accounts/',include('django.contrib.auth.urls')),
-    url(r'^register/$', RegisterView.as_view(), name='register'),
+    path('accounts/',include('django.contrib.auth.urls')),
+    path('register/', RegisterView.as_view(), name='register'),
 ]
 
 if settings.DEBUG:

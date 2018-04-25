@@ -117,6 +117,7 @@ USE_TZ = True
 
 
 LOGIN_REDIRECT_URL = '/posts/'
+SIGNUP_REDIRECT_URL = '/login/'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
