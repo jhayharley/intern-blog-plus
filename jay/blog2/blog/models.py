@@ -31,8 +31,18 @@ class Category(models.Model):
         return '{}'.format(self.title)
 
 class Comment(models.Model):
-    user             = models.ForeignKey(User, on_delete=models.CASCADE)
+    post             = models.ForeignKey('Post', on_delete=models.CASCADE)
     date_created     = models.DateTimeField(auto_now_add=True)
+    author           = models.CharField(max_length=200)
+    text             = models.TextField()
+
+
+    def approve(self):
+        self.approved_comment = True
+        self.save()
+
+    def __str__(self):
+        return self.text
 
 STATUS_CHOICES = (
     ('published', 'Published'),
@@ -52,7 +62,6 @@ class Post(models.Model):
     category         = models.ForeignKey('Category', on_delete=models.CASCADE,)
     body             = models.TextField()
     status           = models.CharField(max_length=9, choices=STATUS_CHOICES, blank=True, default=True)
-    comment          = models.ManyToManyField("Comment", related_name="commments")
 
     def __str__(self):
         return '{}'.format(self.user)
