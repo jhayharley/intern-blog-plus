@@ -11,7 +11,7 @@ class PostView(LoginRequiredMixin, View):
   def get(self, request,*args, **kwargs):
       post = Post.objects.all().order_by('-date_created')
       context = {
-          'object_list': post,
+          'post': post,
       }
       return render(request, "blog/post_list.html", context)
 
@@ -24,11 +24,14 @@ class PostDetailView(View):
 
         return render(request, "blog/post_detail.html", context)
 
-def comment(request):
+def comment(request,pk):
+  post = get_object_or_404(Post, pk=pk)
   if request.method == 'POST':
       form = CommentForm(request.POST)
       if form.is_valid():
           comment = form.save(commit=False)
+          comment.post = post
+          comment.author = request.user
           comment.save()
           return redirect('/posts')
   else:

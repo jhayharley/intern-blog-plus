@@ -7,5 +7,5 @@ app_name = 'blog'
 urlpatterns = [
     path('', PostView.as_view(), name='post'),
     path('<title>', PostDetailView.as_view(), name='post_detail'),
-    path('post/comment/', views.comment, name='post-comment'),
+    path('<int:pk>/', views.comment, name='post-comment'),
 ]

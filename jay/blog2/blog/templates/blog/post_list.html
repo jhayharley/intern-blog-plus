@@ -1,27 +1,36 @@
 {% load staticfiles %}
+
 <!DOCTYPE html>
 <html>
 
-<link href="https://fonts.googleapis.com/css?family=Emilys+Candy|Frijole" rel="stylesheet"
-<link rel="stylesheet" href="{% static 'css/nav.css' %}">
+<link href="https://fonts.googleapis.com/css?family=Emilys+Candy|Frijole" rel="stylesheet"/>
+<link rel="stylesheet" href="{% static 'css/nav.css' %}"/>
 <link rel="stylesheet" type="text/css" href="{% static 'css/post.css' %}" />
 {% include 'nav/navs.html' %}
+
 <title>Post List | My Blog</title>
+<h1 class="title">Post List</h1>
+<h2 class="title">Wazzup</h2>
 {% block content %}
      <h3>{{ post.heading }}</h3>
      <h3>{{ post.sub_title }}</h3>
 
-   {% if object_list %}
-   {% for post in object_list %}
+   {% if post %}
+   {% for post in post %}
    <div class="card">
      <h1>{{ post.title }}</h1>
      <h2>{{ post.sub_title }}</h2>
      <img src="{{post.banner_photo.url}}">
-     <p class="li" ><a href='{% url "blog:post_detail" post.title %}'>Details</a> </p>  
+     <h3 class="li" ><a href='{% url "blog:post_detail" post.title %}'>View Details</a> </h3>  
    </div> 
    {% endfor %}
    {% else %}
     <p>No post</p>
   {% endif %}
+  <div>
+    <img src = "images/op1.jpg">
+    <h2 class="title">About Myself</h2>
+
+  </div>
 {% endblock %}
 </html>
