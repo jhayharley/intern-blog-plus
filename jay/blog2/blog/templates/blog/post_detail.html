@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <meta name = "viewport" content = "width=device-width, initial-scale=1">
-<link href="https://fonts.googleapis.com/css?family=Cormorant+Upright|Ewert" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Emilys+Candy|Frijole" rel="stylesheet">
 <link href="post.css" type="text/css" rel="stylesheet">
 <link rel="stylesheet" href="{% static 'css/nav.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'css/detail.css' %}"/>
@@ -15,57 +15,29 @@
 <title>Post Detail</title>
 
     <div class="card">
-
-      <h1 class="title">{{post.blog.heading}}</h1>
-
-      <small class="sub_heading">{{post.blog.sub_heading}}</small> 
-
-      <h3>{{post.title}}</h3>
-
-      <p><strong>Posted By:</strong> {{post.user.first_name}} {{post.user.last_name}}</p>
-
-      <small> Posted on: {{ post.date|timesince }} ago</small></p>
-
+      <h1 class="heading">{{post.blog.heading}}</h1>
+      <h2 class="sub_heading">{{post.blog.sub_heading}}</h2> 
+      <p><strong>Posted By:</strong> {{post.user}}</p>
+      <small> Posted on: {{ post.date_created }} ago</small></p>
       <img src="{{post.banner_photo.url}}">
-
       <p class="p">{{post.body}}</p>
-
-      <small>Date Modified: {{obj.date_modified }} </small>
-
+      <small>Date Modified: {{post.date_modified }} </small>
       <div class="tags">
-
-      {% for tag in obj.tags.all %}
-
-          {% if not forloop.last %}
-
-        {{tag}},</small></a>
-
+      {% for tag in post.tags.all %}
+          <h3>{% if not forloop.last %}
+        {{tag}},</h3>
           {% else  %}
-
-        {{tag}}</small></a>
-
+        {{tag}}
           {% endif %}
-
       {% endfor %}
-
       </div> 
-
    </div>
-
    <p>commments :</p>
-
     {% for comment in comment %}
-
     <p>{{comment.author}}:  {{ comment.text }}</p>
-
     <small>{{ comment.date_created  }}</small>
-
     <hr>
-
    {% endfor %}
-
 <a href="{% url 'blog:post-comment' %}">comment</a>
-
-
 {% endblock %}
 </html>

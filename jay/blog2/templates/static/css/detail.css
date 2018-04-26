@@ -1,5 +1,6 @@
 .card{
     background-color: #1abc9c;
+    background-position: top;
     background-repeat: no-repeat;
     background-origin: all;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -10,16 +11,18 @@
     padding-top: 20px;
     padding-right: 20px;
     padding-left: 20px;
-    padding-bottom:20px;
+    padding-bottom:200px;
 }
 .comment {
     margin: 20px 0px 20px 20px;
 }
 p{
-    font-family: 'Cormorant Upright', serif;
+    font-family: 'Frijole', cursive;
+    font-size: 17px;
 }
 body{
-    font-family: 'Ewert', cursive;
+    font-family: 'Emilys Candy', cursive;
+    font-size: 21px;
 }
 .heading{
     letter-spacing: 3px;

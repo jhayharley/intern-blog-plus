@@ -10,4 +10,4 @@ from django.views.generic import CreateView
 class RegisterView(CreateView):
     form_class = RegisterForm
     template_name = 'registration/register.html'
-    success = '/accounts/login/'
+    success = '/accounts/login'

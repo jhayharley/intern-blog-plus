@@ -30,10 +30,10 @@ def comment(request):
       if form.is_valid():
           comment = form.save(commit=False)
           comment.save()
-          return redirect('/')
+          return redirect('/posts')
   else:
       form = CommentForm()
   context = {
       'form': form,
   }
-  return render(request, 'post.html', context)
+  return render(request, 'blog/comment.html', context)

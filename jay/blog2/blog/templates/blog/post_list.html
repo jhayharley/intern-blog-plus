@@ -2,16 +2,17 @@
 <!DOCTYPE html>
 <html>
 
-
+<link href="https://fonts.googleapis.com/css?family=Emilys+Candy|Frijole" rel="stylesheet"
 <link rel="stylesheet" href="{% static 'css/nav.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'css/post.css' %}" />
 {% include 'nav/navs.html' %}
 <title>Post List | My Blog</title>
-
 {% block content %}
+     <h3>{{ post.heading }}</h3>
+     <h3>{{ post.sub_title }}</h3>
+
    {% if object_list %}
    {% for post in object_list %}
-
    <div class="card">
      <h1>{{ post.title }}</h1>
      <h2>{{ post.sub_title }}</h2>
